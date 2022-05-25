@@ -14,10 +14,6 @@
 // Functions definitions of SysTick
 void SysTick_Init(void);
 void SysTick_Wait(uint32_t delay);
-void genericDelay_Wait1ms(uint32_t delayms);
-void genericDelay_Wait1us(uint32_t delayus);
-void PLL_Init(void);
-
 #endif
 // SYSTICKTIMER_H_INCLUDED
 
