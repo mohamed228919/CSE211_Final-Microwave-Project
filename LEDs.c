@@ -30,7 +30,8 @@ void PortFInit(void)
 	GPIO_PORTF_PUR_R |= 0x11;
 }
 
-/*void SW2_Interrupt(void)
+//
+void SW2_Interrupt(void)
 {
 		// negative edge triggered (falling ) configuration
 	GPIO_PORTF_IS_R &= ~0x10;
@@ -47,7 +48,7 @@ void PortFInit(void)
 	NVIC_PRI7_R = (NVIC_PRI7_R&0xFF00FFFF)|0x00400000 ;
 	NVIC_PRI7_R = (NVIC_PRI7_R & 0xFF00FFFF) | (2 << 21);
 	NVIC_PRI7_R = (NVIC_PRI7_R & 0xFF00FFFF) | (1 << 22);
-}*/
+}
 
 //Check if SW1 in TivaC is pressed or not
 unsigned char SW1_Input(void)
