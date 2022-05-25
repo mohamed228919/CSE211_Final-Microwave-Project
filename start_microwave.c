@@ -14,11 +14,11 @@
 //function to start the cooking of microwave
 void Start_Cooking(char time_sec){
 	int i;
-	LCD_command(shiftCursorRight);      //direction of cursor to right
-	LCD_command(cursorBlink);         //turn on display mode and cursor blinking
-	LCD_command(clearDisplay) ;        //clear whatever is written on display 
-	RGB_Output(RED+BLUE+GREEN);		//turn on all leds
-	Start_Timer(time_sec);				//start counting down	
+	LCD_command(shiftCursorRight);      			//direction of cursor to right
+	LCD_command(cursorBlink);         			//turn on display mode and cursor blinking
+	LCD_command(clearDisplay) ;       			//clear whatever is written on display 
+	RGB_Output(RED+BLUE+GREEN);				//turn on all leds
+	Start_Timer(time_sec);					//start counting down	
 	for(i = 0; i < 3; i++)
 	{
 		Buzzer_Output(BuzzerON);			//turn on buzzer
@@ -52,7 +52,7 @@ void Enter_kilo(char s)
 		//check if the symbol entered is a number between 1 to 9 or not
 		if (c == 'A' || c == 'B' || c == 'C' || c == 'D' || c == '#' || c == '0' || c == '*')
 		{
-			LCD_Write("Err..");			//write "Err.." on lcd
+			LCD_Write("Err...");			//write "Err.." on lcd
 			genericDelay_Wait1ms(2000);			//wait 2 sec
 		}
 		//check if the symbol entered is a number between 1 to 9 or not
