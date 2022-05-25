@@ -45,11 +45,8 @@ unsigned char SW3_Input(void)
 {
   return (GPIO_PORTA_DATA_R & 0x08);
 }
-void GPIOA_Handler(void){
- GPIO_PORTA_ICR_R |= 0x04; // acknowledge flag4 of pin 4
- while(SW3_Input()==0){
- }
-}
+
+
 //Turn ON, Turn OFF Buzzer
 void Buzzer_Output(unsigned char data)
 {

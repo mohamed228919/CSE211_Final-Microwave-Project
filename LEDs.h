@@ -33,4 +33,5 @@ void Start_Timer(short time_sec);				//function to start count down of timer and
 void Write_Timer(short time4, short time3, short time2, short time1);	//function to write timer on lcd
 void Enter_kilo(char s);								//function to enter no. of kilo of the beef of chicken
 void Cooking_time(void);
-#endif
+void flag_stop(void)
+#endif //__LEDs_H__
