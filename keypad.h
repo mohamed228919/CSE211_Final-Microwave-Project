@@ -10,8 +10,6 @@
 #include "SystickTimer.h"
 #define  padRows  4
 #define  padCols  4
-
 void keypad_Init       (void);
 char keypad_getkey     (void);
-
 #endif //_Keypad_h_
