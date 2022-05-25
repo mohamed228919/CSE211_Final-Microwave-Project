@@ -21,11 +21,11 @@ void Start_Cooking(char time_sec){
 	Start_Timer(time_sec);				//start counting down	
 	for(i = 0; i < 3; i++)
 	{
-		Buzzer_Output(BuzzerON);	//turn on buzzer
-		RGB_Output(OFF);						//turn off leds
-		genericDelay_Wait1ms(1000);					//wait 1 sec
-		RGB_Output(RED+BLUE+GREEN);	//turn on all leds
-		genericDelay_Wait1ms(1000);					//wait 1 sec
+		Buzzer_Output(BuzzerON);			//turn on buzzer
+		RGB_Output(OFF);				//turn off leds
+		genericDelay_Wait1ms(1000);			//wait 1 sec
+		RGB_Output(RED+BLUE+GREEN);			//turn on all leds
+		genericDelay_Wait1ms(1000);			//wait 1 sec
 	}
 	Buzzer_Output(OFF);					//turn off buzzer
 	RGB_Output(OFF);
