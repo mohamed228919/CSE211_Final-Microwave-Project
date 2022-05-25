@@ -4,8 +4,6 @@
 *  Timer Functions
 *
 *  @author   Moaz Mohamed
-*
-*
 ****************************************************/
 #include "stdint.h"
 #include "stdlib.h"
@@ -15,12 +13,9 @@
 
 //function to start count down of timer and know number of minutes and seconds
 volatile unsigned int flag = 1;
-void flag_stop(void)
-	{
-	
-		flag =0;
-	}
-
+void flag_stop(void){
+	flag =0;
+}
 short time_4;
 short time_3;
 short time_2;
@@ -72,10 +67,7 @@ void Start_Timer(short time_sec){
 			time_3 = 0;
 			time_2 = 0;
 			time_1 = 0;
-			
-		
 		}
-		
 	}
 }
 //function to write timer on lcd
@@ -85,7 +77,7 @@ void Write_Timer(short time4, short time3, short time2, short time1)
 	LCD_command(clearDisplay);        //clear whatever is written on display
 	LCD_data(time4 + '0');					//(0)0:00
 	LCD_data(time3 + '0');					//0(0):00
-	LCD_data(':');								//00(:)00
+	LCD_data(':');						//00(:)00
 	LCD_data(time2 + '0');					//00:(0)0
 	LCD_data(time1 + '0');					//00:0(0)
 }
