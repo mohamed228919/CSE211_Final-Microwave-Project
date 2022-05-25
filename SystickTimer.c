@@ -42,4 +42,15 @@ void SysTick_Wait(uint32_t delay) {
 	while ((NVIC_ST_CTRL_R&0x00010000)==0) {}
 }
 
+void genericDelay_Wait1ms(uint32_t delayms) {
+  unsigned long i;
+  for (i = 0; i < delayms; i++)
+    SysTick_Wait(80000);
+}
+
+void genericDelay_Wait1us(uint32_t delayus) {
+  unsigned long i;
+  for (i = 0; i < delayus; i++)
+    SysTick_Wait(80);
+}
 
