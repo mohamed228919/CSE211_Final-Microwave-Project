@@ -1,8 +1,7 @@
 /****************************************************
 *  @file    LCD.c
 *
-*  LCD interfacing from scratch Using 4 bit methdlogy
-
+*  LCD interfacing from scratch Using 4 bit methodology
 *
 *  @author  Mohamed Mostafa Shaban
 *
@@ -40,18 +39,18 @@ void LCD_Init(void)
     // Initalize Port B as digital output
     SYSCTL_RCGCGPIO_R |= 0x02;
     while ((SYSCTL_PRGPIO_R & 0x02) == 0) {}
-		GPIO_PORTB_LOCK_R = 0x4C4F434B;
+    GPIO_PORTB_LOCK_R = 0x4C4F434B;
     GPIO_PORTB_PCTL_R = 0;
-		GPIO_PORTB_CR_R  |= 0xFF;
+    GPIO_PORTB_CR_R  |= 0xFF;
     GPIO_PORTB_DIR_R |= 0xFF;
     GPIO_PORTB_DEN_R |= 0xFF;
     GPIO_PORTB_AMSEL_R = 0x00;
     GPIO_PORTB_PUR_R = 0;
-		// initialize port A
-		SYSCTL_RCGCGPIO_R |= 0x01;
-		while ((SYSCTL_PRGPIO_R & 0x01) == 0) {}
+    // initialize port A
+    SYSCTL_RCGCGPIO_R |= 0x01;
+    while ((SYSCTL_PRGPIO_R & 0x01) == 0) {}
     GPIO_PORTA_PCTL_R = 0;
-		GPIO_PORTA_CR_R  |= 0x60;
+    GPIO_PORTA_CR_R  |= 0x60;
     GPIO_PORTA_DIR_R |= 0x60;
     GPIO_PORTA_DEN_R |= 0x60;
     GPIO_PORTA_AMSEL_R = 0x00;
@@ -99,6 +98,7 @@ void LCD_data(char dataInput)
     LCD_print4bits(dataInput << 4, RS);      // send LSB 4 bits, and set RS
     genericDelay_Wait1us(40);
 }
+//To send string directly
 void LCD_sendString(char* str)
 {
   uint32_t i = 0;
@@ -108,7 +108,7 @@ void LCD_sendString(char* str)
     i++;
   }
 }
-
+//Using the function for print any string on lcd
 void LCD_Write(char *str)    //Function to write on LCD
 {
 	LCD_command(cursorBlink);
