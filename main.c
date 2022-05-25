@@ -3,17 +3,17 @@
 #include "tm4c123gh6pm.h"
 #include "LCD.h"
 #include "LEDs.h"
-
+//some shortCuts  used in main function
 #define OFF           			0x00
-#define BuzzerON            0x04
-#define RED 								0x02
-#define BLUE 								0x04
-#define GREEN 							0x08
-#define IDLE								0
-#define POPCORN							1
-#define BEEF								2
-#define CHICKEN							3
-#define COOKINGTIME					4
+#define BuzzerON            		0x04
+#define RED 				0x02
+#define BLUE 				0x04
+#define GREEN 				0x08
+#define IDLE				0
+#define POPCORN				1
+#define BEEF				2
+#define CHICKEN				3
+#define COOKINGTIME			4
 
 void SystemInit(){}
 
@@ -21,10 +21,10 @@ int main(void)
 {
 	short c;
 	int state = IDLE;
-	PortFInit();				//Intilization of PORTF
-  keypad_Init();
-	SW3WithBuzzer_Init();	//Intilization of  SW3 and Buzzer
-	LCD_Init();					//Intilization of LCD
+	PortFInit();				
+ 	keypad_Init();
+	SW3WithBuzzer_Init();	
+	LCD_Init();					
 	PLL_Init();
 	while (1)
 	{
@@ -34,8 +34,8 @@ int main(void)
 			//IDLE case
 			case IDLE :
 				c = 0;
-				LCD_command(clearDisplay);      //clear whatever is written on display
-				LCD_command(cursorBlink);          //turn on display mode and cursor blinking
+				LCD_command(clearDisplay);      	//clear whatever is written on display
+				LCD_command(cursorBlink);           	//turn on display mode and cursor blinking
 				genericDelay_Wait1ms(500);
 				RGB_Output(OFF);
 				c = keypad_getkey();
@@ -49,7 +49,7 @@ int main(void)
 					state = COOKINGTIME;
 				break;
 
-			//POP CORN case
+			//check POP CORN case
 			case POPCORN :
 				RGB_Output(BLUE + GREEN);
 				LCD_Write("POP CORN");
@@ -58,14 +58,14 @@ int main(void)
 				state = IDLE;
 				break;
 
-			//BEEF case
+			//check BEEF case
 			case BEEF :
 				RGB_Output(BLUE);
 				Enter_kilo('B');
 				state = IDLE;
 				break;
 
-			//CHICKEN case
+			//check CHICKEN case
 			case CHICKEN :
 				RGB_Output(GREEN);
 				Enter_kilo('C');
@@ -82,4 +82,3 @@ int main(void)
 		}
 	}
 }
-
