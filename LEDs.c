@@ -1,12 +1,11 @@
-/****************************************************
+/**************************************************
 *  @file    LEDs.c
 *
 *  LEDs,Switches interface for better user experience.
 *
 *  @author   Youssef Eslam
 *
-*
-****************************************************/
+**************************************************/
 #include "stdint.h"
 #include "stdlib.h"
 #include "tm4c123gh6pm.h"
@@ -56,13 +55,11 @@ unsigned char SW1_Input(void)
 	return GPIO_PORTF_DATA_R & 0x10;
 }
 
-
 //Check if SW2 in TivaC is pressed or not
 unsigned char SW2_Input(void)
 {
 	return GPIO_PORTF_DATA_R & 0x01;
 }
-
 
 //Check if SW1 and SW2 is pressed or not
 unsigned char SW_Input(void)
@@ -77,7 +74,6 @@ void RGB_Output(unsigned char data)
 	GPIO_PORTF_DATA_R = (GPIO_PORTF_DATA_R & 0x11) + 0x00;
 	GPIO_PORTF_DATA_R = (GPIO_PORTF_DATA_R & 0x11) + data;
 }
-
 
 void GPIOF_Handler(void)
 {
