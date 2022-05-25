@@ -10,7 +10,7 @@ void GPIOF_Handler(void){
 	flag1 = 1;
 	while(!sw1_Input()){};				//pause
 		RGB_Output(RED+BLUE+GREEN);
-		while(flag1&&flag2){
+		while(flag1){
 			GPIO_PORTF_DATA_R ^= RED+GREEN+BLUE;
 			for(i=0;i<300000 && flag1;i++) 			//for delay because systick wait is an interrupt
 			{
