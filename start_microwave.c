@@ -5,7 +5,6 @@
 *
 *  @author   Mohamed Mostafa Elnahas
 *
-*
 ****************************************************/
 #include "stdint.h"
 #include "stdlib.h"
