@@ -64,6 +64,13 @@ int main(void)
 				Enter_kilo('B');
 				state = IDLE;
 				break;
+				
+			//check CHICKEN case
+			case CHICKEN :
+				RGB_Output(GREEN);
+				Enter_kilo('C');
+				state = IDLE;
+				break;	
 
 		}
 	}
