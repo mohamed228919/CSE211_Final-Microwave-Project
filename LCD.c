@@ -99,3 +99,21 @@ void LCD_data(char dataInput)
     LCD_print4bits(dataInput << 4, RS);      // send LSB 4 bits, and set RS
     genericDelay_Wait1us(40);
 }
+void LCD_sendString(char* str)
+{
+  uint32_t i = 0;
+  while (str[i] != '\0')
+  {
+    LCD_data(str[i]);
+    i++;
+  }
+}
+
+void LCD_Write(char *str)    //Function to write on LCD
+{
+	LCD_command(cursorBlink);
+	LCD_command(clearDisplay);    //clear whatever is written on display
+	genericDelay_Wait1ms(500);
+	LCD_sendString(str);
+	genericDelay_Wait1ms(500);
+}
