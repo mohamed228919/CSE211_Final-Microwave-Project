@@ -71,6 +71,13 @@ int main(void)
 				Enter_kilo('C');
 				state = IDLE;
 				break;	
+             		//COOKING case
+			case COOKINGTIME :
+				RGB_Output(GREEN + RED);
+				LCD_Write("Cooking Time");
+				Cooking_time();
+				state = IDLE;
+				break
 
 		}
 	}
